@@ -3,28 +3,57 @@ import java.util.Scanner;
 public class Bob {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = 1;
-        String[] tasks = new String[100];
+        TaskList tasklist = new TaskList();
         System.out.println("Hi! I'm Bob");
-        System.out.println("What can I help you with?");
+        System.out.println("What's on your agenda for today?");
 
         while (true) {
-            System.out.println("Add task: ");
-            String input = sc.nextLine();
-            tasks[n] = input;
+            System.out.println("Action: ");
+            String action = sc.nextLine();
 
-            if (input.equalsIgnoreCase("bye")) {
+            if (action.equalsIgnoreCase("bye")) {
                 System.out.println("Bye!");
                 break;
             }
-            else if (input.equalsIgnoreCase("tasks")) {
-                for (int i = 1; i < n; i++) {
-                    System.out.println(i + ". " + tasks[i]);
+            else if (action.equalsIgnoreCase("add")) {
+                while (true) {
+                    System.out.println("Add a task: ");
+                    String input = sc.nextLine();
+                    Task t = new Task(input);
+                    tasklist.add(t);
+                    System.out.println("Added task: " + t.toString());
+
+                    if (input.equalsIgnoreCase("done")) {
+                        break;
+                    }
                 }
+
+            }
+            else if (action.equalsIgnoreCase("tasks")) {
+                System.out.println("Task(s) in your list: ");
+                tasklist.listTasks();
                 continue;
             }
-            System.out.println("Task " + n + " added: " + input);
-            n++;
+            else if (action.equalsIgnoreCase("mark")) {
+                System.out.println("Mark task: ");
+                int index = sc.nextInt();
+                sc.nextLine();
+                tasklist.getTask(index).markDone();
+                String done = tasklist.getTask(index).toString();
+                System.out.println("Task marked done: " + done);
+
+                continue;
+            }
+
+            else if (action.equalsIgnoreCase("undo")) {
+                System.out.println("Unmark task: ");
+                int index = sc.nextInt();
+                sc.nextLine();
+                tasklist.getTask(index).unmark();
+                String unmarked = tasklist.getTask(index).toString();
+                System.out.println("Task unmarked: " + unmarked);
+                continue;
+            }
         }
 
     }
