@@ -14,7 +14,7 @@ public class Events extends Task{
 
     @Override
     public String toString() {
-        return "[E] " + super.toString() + " " + this.startDate + " to " + this.endDate + ": "
+        return "[E]" + super.toString() + " " + this.startDate + " to " + this.endDate + ": "
                 + this.startTime + " - " + this.endTime;
     }
 
