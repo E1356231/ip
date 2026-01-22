@@ -1,7 +1,24 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
-
+Hi! I'm Bob
+What's on your agenda for today?
+Action:
+Task type: To-Do task: To-Do task added: [T][ ] read
+Task type: Deadline task: End Date (e.g. 22-jan-26): End Time (e.g. 2359): Deadline task added: [D][ ] submit essay by 02-jan-26 2359
+Task type: Event: Start Date (e.g. 22-jan-26): Start Time (e.g. 0845): End Date (e.g. 22-jan-26): End Time (e.g. 2359): Event added: [E][ ] meeting 03-jan-26 to 03-jan-26: 0900 - 1230
+Task type: Action:
+Task(s) in your list:
+1. [T][ ] read
+2. [D][ ] submit essay by 02-jan-26 2359
+3. [E][ ] meeting 03-jan-26 to 03-jan-26: 0900 - 1230
+Action:
+task: Task marked done: [E][X] meeting 03-jan-26 to 03-jan-26: 0900 - 1230
+Action:
+task: Task marked done: [D][X] submit essay by 02-jan-26 2359
+Action:
+task: Task unmarked: [E][ ] meeting 03-jan-26 to 03-jan-26: 0900 - 1230
+Action:
+Task(s) in your list:
+1. [T][ ] read
+2. [D][X] submit essay by 02-jan-26 2359
+3. [E][ ] meeting 03-jan-26 to 03-jan-26: 0900 - 1230
+Action:
+Bye!

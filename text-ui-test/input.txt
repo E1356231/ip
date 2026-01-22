@@ -1,0 +1,23 @@
+add
+t
+read
+d
+submit essay
+02-jan-26
+2359
+e
+meeting
+03-jan-26
+0900
+03-jan-26
+1230
+done
+tasks
+mark
+3
+mark
+2
+unmark
+3
+tasks
+bye
