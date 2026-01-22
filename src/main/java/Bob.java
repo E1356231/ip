@@ -92,6 +92,11 @@ public class Bob {
                     tasklist.getTask(index).unmark();
                     String unmarked = tasklist.getTask(index).toString();
                     System.out.println("Task unmarked: " + unmarked);
+                } else if (action.equalsIgnoreCase("delete")) {
+                    System.out.print("task: ");
+                    int index = sc.nextInt() ;
+                    sc.nextLine();
+                    tasklist.delete(index);
                 } else {
                     throw new BobException(Errors.INVALID_COMMAND
                             + "\n__Valid Actions__"

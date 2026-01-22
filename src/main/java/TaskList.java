@@ -1,19 +1,29 @@
-public class TaskList {
-    private Task[] tasks = new Task[100];
-    private int size = 0;
+import java.util.ArrayList;
+import java.util.Collections;
+
+class TaskList {
+    private ArrayList<Task> tasks;
+
+    public TaskList() {
+        tasks = new ArrayList<>();
+    }
 
     public void add(Task t) {
-        tasks[size] = t;
-        size++;
+        tasks.add(t);
+    }
+
+    public void delete(int idx) {
+        Task removed = tasks.remove(idx - 1);
+        System.out.println("Task removed: " + removed);
     }
 
     public Task getTask(int idx) {
-        return tasks[idx - 1];
+        return tasks.get(idx - 1);
     }
 
     public void listTasks() {
-        for (int i = 0; i < size; i++) {
-            System.out.println(i + 1 + ". " + tasks[i]);
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println(i + 1 + ". " + tasks.get(i));
         }
     }
 }
