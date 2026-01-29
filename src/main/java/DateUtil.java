@@ -1,3 +1,5 @@
+import bob.exception.BobException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -7,7 +9,7 @@ public class DateUtil {
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/M/yy");
     private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HHmm");
 
-    public static void isValidDate(String date) throws BobException{
+    public static void isValidDate(String date) throws BobException {
         LocalDate d;
         try {
             d = LocalDate.parse(date, DATE_FORMAT);
