@@ -1,3 +1,9 @@
+import bob.ui.Ui;
+import bob.storage.Storage;
+import bob.parser.Parser;
+import bob.command.Command;
+import bob.task.TaskList;
+import bob.exception.BobException;
 import java.util.Scanner;
 
 public class Bob {
