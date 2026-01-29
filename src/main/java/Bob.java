@@ -21,7 +21,7 @@ public class Bob {
                             System.out.print("Task type: ");
                             String input = sc.nextLine();
 
-                            if (input.equalsIgnoreCase("done")) {
+                            if (input.equalsIgnoreCase("quit")) {
                                 break;
                             } else if (input.equalsIgnoreCase("t")) {
                                 System.out.print("To-Do task: ");
@@ -68,7 +68,7 @@ public class Bob {
                                         + "\nE: for Events"
                                         + "\nD: for Deadlines"
                                         + "\nT for To-Dos"
-                                        + "\nDone: to stop adding tasks.");
+                                        + "\nQuit: to stop adding tasks.");
                             }
                         } catch (BobException e) {
                             System.out.println(e.getMessage());
