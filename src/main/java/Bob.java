@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Bob {
-    public static void main(String[] args) throws BobException{
+    public static void main(String[] args) throws BobException {
         Scanner sc = new Scanner(System.in);
         TaskList tasklist = new TaskList();
         System.out.println("Hi! I'm Bob");
@@ -33,10 +33,10 @@ public class Bob {
                             } else if (input.equalsIgnoreCase("d")) {
                                 System.out.print("Deadline task: ");
                                 String deadline = sc.nextLine();
-                                System.out.print("End Date (e.g. 22-Jan-26): ");
+                                System.out.print("Due Date (e.g. 22/1/26): ");
                                 String endDate = sc.nextLine();
                                 DateUtil.isValidDate(endDate);
-                                System.out.print("End Time (e.g. 2359): ");
+                                System.out.print("Time Due (e.g. 2359): ");
                                 String endTime = sc.nextLine();
                                 DateUtil.isValidTime(endTime);
                                 Deadlines d = new Deadlines(deadline, endDate, endTime);
@@ -46,13 +46,13 @@ public class Bob {
                             } else if (input.equalsIgnoreCase("e")) {
                                 System.out.print("Event: ");
                                 String event = sc.nextLine();
-                                System.out.print("Start Date (e.g. 22-Jan-26): ");
+                                System.out.print("Start Date (e.g. 22/1/26): ");
                                 String startDate = sc.nextLine();
                                 DateUtil.isValidDate(startDate);
                                 System.out.print("Start Time (e.g. 0845): ");
                                 String startTime = sc.nextLine();
                                 DateUtil.isValidTime(startTime);
-                                System.out.print("End Date (e.g. 22-Jan-26): ");
+                                System.out.print("End Date (e.g. 22/1/26): ");
                                 String endDate = sc.nextLine();
                                 DateUtil.isValidDate(endDate);
                                 System.out.print("End Time (e.g. 2359): ");
@@ -82,14 +82,14 @@ public class Bob {
                     System.out.print("task: ");
                     int index = sc.nextInt();
                     sc.nextLine();
-                    tasklist.getTask(index).markDone();
+                    tasklist.markDone(index);
                     String done = tasklist.getTask(index).toString();
                     System.out.println("Task marked done: " + done);
                 } else if (action.equalsIgnoreCase("unmark")) {
                     System.out.print("task: ");
                     int index = sc.nextInt();
                     sc.nextLine();
-                    tasklist.getTask(index).unmark();
+                    tasklist.unmark(index);
                     String unmarked = tasklist.getTask(index).toString();
                     System.out.println("Task unmarked: " + unmarked);
                 } else if (action.equalsIgnoreCase("delete")) {

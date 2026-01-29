@@ -1,17 +1,33 @@
-public class Deadlines extends Task{
-    private String date;
-    private String time;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Deadlines extends Task {
+    private final String date;
+    private final String time;
+    private final LocalDate dateDue;
+    private final LocalTime timeDue;
     private static final String TYPE = "D";
 
     public Deadlines(String description, String date, String time) {
         super(description);
         this.date = date;
         this.time = time;
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/M/yy");
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HHmm");
+
+        this.dateDue = LocalDate.parse(date, dateFormat);
+        this.timeDue = LocalTime.parse(time, timeFormat);
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " by " + this.date + " " + this.time;
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("d MMMM yy");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+
+        return "[D]" + super.toString() + " by " + this.dateDue.format(dateFormatter) + ", "
+                + this.timeDue.format(timeFormatter);
     }
 
     @Override
