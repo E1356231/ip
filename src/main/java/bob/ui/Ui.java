@@ -25,7 +25,7 @@ public class Ui {
     }
 
     public String read() {
-        System.out.println("Action:");
+        System.out.println("Enter a command:");
         return sc.nextLine();
     }
 

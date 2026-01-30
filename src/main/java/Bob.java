@@ -40,6 +40,9 @@ public class Bob {
         }
         sc.close();
     }
+    public TaskList getTasks() {
+        return tasks;
+    }
     public static void main(String[] args) throws BobException {
 
         new Bob("data/bob.txt").run();
