@@ -1,13 +1,11 @@
 package bob.task;
-import bob.task.Task;
-
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 /**
- * Represents a Event task in the Bob chatbot.
+ * Represents an Event task in the Bob chatbot.
  * Stores type, description, start date and time, end date and time.
  */
 public class Events extends Task {
@@ -17,8 +15,8 @@ public class Events extends Task {
     private final String endTime;
     private final static String TYPE = "E";
 
-    private LocalDateTime startDateTime;
-    private LocalDateTime endDateTime;
+    private final LocalDateTime startDateTime;
+    private final LocalDateTime endDateTime;
 
 
     public Events(String description, String startDate, String startTime, String endDate, String endTime) {

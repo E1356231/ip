@@ -22,11 +22,12 @@ public class TaskList {
     }
 
 
+    // Add task to list
     public void add(Task t) {
         tasks.add(t);
         saveTasks();
     }
-
+    // Remove task from list
     public Task delete(int idx) {
         Task removed = tasks.remove(idx - 1);
         saveTasks();
@@ -44,16 +45,19 @@ public class TaskList {
         return tasks;
     }
 
+    // Mark task as done
     public void markDone(int idx) {
         tasks.get(idx - 1).markDone();
         saveTasks();
     }
 
+    // Unmark task
     public void unmark(int idx) {
         tasks.get(idx - 1).unmark();
         saveTasks();
     }
 
+    // Load tasks from file
     private ArrayList<Task> loadTasks() {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(FILE_PATH);
@@ -84,9 +88,7 @@ public class TaskList {
                     default:
                         continue;
                 }
-                if (task != null) {
-                    tasks.add(task);
-                }
+                tasks.add(task);
             }
         } catch (IOException e) {
             System.out.println("Error loading tasks.");
@@ -94,6 +96,7 @@ public class TaskList {
         return tasks;
     }
 
+    // Save tasks to file
     private void saveTasks() {
         File file = new File(FILE_PATH);
         file.getParentFile().mkdirs();

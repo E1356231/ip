@@ -12,10 +12,12 @@ public class Task {
         this.isDone = false;
     }
 
+    // Mark the task as done
     public void markDone() {
         this.isDone = true;
     }
 
+    // Unmark the task
     public void unmark() {
         this.isDone = false;
     }
@@ -38,10 +40,12 @@ public class Task {
         return "[" + this.getStatus() + "] " + this.description;
     }
 
+    // Write task to file
     public String toFileString() {
         return (isDone ? "1" : "0") + " | " + this.description;
     }
 
+    // Read task from file
     public static Task fromFileString(String line) {
         String[] parts = line.split(" \\| ",2);
         Task task = new Task(parts[1]);
