@@ -34,6 +34,9 @@ public class Parser {
             case "event":
                 if (parts.length < 2) throw new BobException("Specify description and date/time!");
                 return new AddEventCommand(parts[1]);
+            case "find":
+                if (parts.length < 2) throw new BobException("Please provide a keyword");
+                return new FindCommand(parts[1]);
             default:
                 throw new BobException("Unknown command: " + word);
         }

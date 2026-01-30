@@ -110,4 +110,17 @@ public class TaskList {
             System.out.println("Error saving tasks.");
         }
     }
+
+    // Find tasks in the list
+    public ArrayList<Task> find(String word) {
+        ArrayList<Task> result = new ArrayList<>();
+
+        for (Task task : tasks) {
+            if (task.getDescription().toLowerCase()
+                    .contains(word.toLowerCase())) {
+                result.add(task);
+            }
+        }
+        return result;
+    }
 }
