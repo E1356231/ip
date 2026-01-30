@@ -7,9 +7,11 @@ import bob.task.Task;
  */
 public class ToDos extends Task {
     public static final String TYPE = "T";
+
     public ToDos(String description){
         super(description);
     }
+
     @Override
     public String toString() {
         return "[T]" + super.toString();

@@ -15,6 +15,7 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    // Load tasks from file
     public ArrayList<Task> load() throws BobException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
@@ -55,6 +56,7 @@ public class Storage {
         return tasks;
     }
 
+    // Save tasks to file
     public void saveTasks(ArrayList<Task> tasks) throws BobException {
         File file = new File(filePath);
         file.getParentFile().mkdirs();
