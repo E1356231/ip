@@ -4,7 +4,9 @@ import bob.task.TaskList;
 import bob.storage.Storage;
 import bob.ui.Ui;
 import bob.task.ToDos;
-
+/**
+ * Adds a To-do task to in the chatbot.
+ */
 public class AddToDoCommand extends Command {
     private final String description;
 

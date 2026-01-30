@@ -1,6 +1,10 @@
 package bob.task;
 import bob.task.Task;
 
+/**
+ * Represents a To-Do task in the Bob chatbot.
+ * Stores type and description only.
+ */
 public class ToDos extends Task {
     public static final String TYPE = "T";
     public ToDos(String description){

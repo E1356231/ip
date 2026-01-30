@@ -3,6 +3,12 @@ package bob.task;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * Represents a list of tasks in the Bob chatbot.
+ * Responsible for adding, deleting, marking, unmarking
+ * and saving, loading tasks from the file
+ */
+
 public class TaskList {
     private final ArrayList<Task> tasks;
     private static final String FILE_PATH = "data/bob.txt";

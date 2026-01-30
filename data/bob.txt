@@ -1,1 +1,2 @@
-T | 1 | Finish Homewrok
+T | 0 | Finish Homewrok
+T | 0 | Finish Homework

@@ -1,5 +1,8 @@
 package bob.task;
-
+/**
+ * Represents a single task in the Bob chatbot.
+ * Stores a description and completion status.
+ */
 public class Task {
     private String description;
     private boolean isDone;

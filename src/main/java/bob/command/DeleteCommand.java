@@ -3,7 +3,9 @@ import bob.exception.BobException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 import bob.ui.Ui;
-
+/**
+ * Deletes a task from the chatbot.
+ */
 public class DeleteCommand extends Command {
     private final int index;
 

@@ -5,7 +5,11 @@ import bob.command.Command;
 import bob.task.TaskList;
 import bob.exception.BobException;
 import java.util.Scanner;
-
+/**
+ * The main class for Bob chatbot.
+ * Handles the initialization of the task list, user interface,
+ * and execution of commands.
+ */
 public class Bob {
     private Ui ui;
     private Storage storage;

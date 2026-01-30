@@ -3,7 +3,9 @@ import bob.exception.BobException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 import bob.ui.Ui;
-
+/**
+ * Marks a task as complete from list in the chatbot.
+ */
 public class MarkCommand extends Command {
     private final int index;
 

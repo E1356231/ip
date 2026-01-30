@@ -4,7 +4,10 @@ import bob.exception.BobException;
 import bob.task.*;
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ * Handles reading and writing to the file for the chatbot.
+ * Responsible for saving tasks to disk and loading them at startup.
+ */
 public class Storage {
     private String filePath;
 

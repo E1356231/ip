@@ -5,7 +5,9 @@ import bob.storage.Storage;
 import bob.task.Deadlines;
 import bob.task.TaskList;
 import bob.ui.Ui;
-
+/**
+ * Adds a Deadline task to in the chatbot.
+ */
 public class AddDeadlineCommand extends Command {
     private final String description;
     private String date;

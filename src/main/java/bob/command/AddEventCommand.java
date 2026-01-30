@@ -3,7 +3,9 @@ import bob.exception.BobException;
 import bob.storage.Storage;
 import bob.ui.Ui;
 import bob.task.*;
-
+/**
+ * Adds a Event task to in the chatbot.
+ */
 public class AddEventCommand extends Command {
     private final String description;
     private String startDate;
