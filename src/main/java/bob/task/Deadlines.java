@@ -4,7 +4,10 @@ import bob.task.Task;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Represents a Deadline task in the Bob chatbot.
+ * Stores type, description, due date and time.
+ */
 public class Deadlines extends Task {
     private final String date;
     private final String time;

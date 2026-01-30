@@ -3,7 +3,9 @@ import bob.exception.BobException;
 import bob.storage.Storage;
 import bob.task.TaskList;
 import bob.ui.Ui;
-
+/**
+ * Unmarks a task from the list in the chatbot.
+ */
 public class UnmarkCommand extends Command {
     private final int index;
 

@@ -2,7 +2,10 @@ package bob.parser;
 
 import bob.command.*;
 import bob.exception.BobException;
-
+/**
+ * Parses user input for the chatbot.
+ * Converts raw input strings into corresponding Command objects.
+ */
 public class Parser {
     public static Command parse(String fullCommand) throws BobException {
         String[] parts = fullCommand.split(" ", 2); // split by space

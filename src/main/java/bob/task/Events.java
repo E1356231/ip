@@ -6,7 +6,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
-
+/**
+ * Represents a Event task in the Bob chatbot.
+ * Stores type, description, start date and time, end date and time.
+ */
 public class Events extends Task {
     private final String startDate;
     private final String startTime;

@@ -4,6 +4,11 @@ import bob.task.Task;
 
 import java.util.Scanner;
 
+/**
+ * Handles the interactions with user for the Bob chatbot.
+ * Responsible for reading user inputs and printing outputs.
+ */
+
 public class Ui {
     private final Scanner sc;
 
