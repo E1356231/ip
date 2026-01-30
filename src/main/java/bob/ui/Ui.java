@@ -2,6 +2,7 @@ package bob.ui;
 
 import bob.task.Task;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -32,6 +33,13 @@ public class Ui {
     public String read() {
         System.out.println("Enter a command:");
         return sc.nextLine();
+    }
+
+    public void showFoundTasks(ArrayList<Task> tasks) {
+        System.out.println("Matching tasks in your list:");
+        for (Task t : tasks) {
+            System.out.println(t);
+        }
     }
 
     public void showAddedTask(Task task) {
