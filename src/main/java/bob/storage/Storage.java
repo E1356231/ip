@@ -1,9 +1,19 @@
 package bob.storage;
 
-import bob.exception.BobException;
-import bob.task.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import bob.exception.BobException;
+import bob.task.Deadlines;
+import bob.task.Events;
+import bob.task.Task;
+import bob.task.ToDos;
+
 /**
  * Handles reading and writing to the file for the chatbot.
  * Responsible for saving tasks to disk and loading them at startup.
@@ -15,7 +25,11 @@ public class Storage {
         this.filePath = filePath;
     }
 
-    // Load tasks from file
+    /**
+     * Load tasks from file
+     * @return
+     * @throws BobException
+     */
     public ArrayList<Task> load() throws BobException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
@@ -34,17 +48,17 @@ public class Storage {
                 char type = line.charAt(0);
 
                 switch (type) {
-                    case 'T':
-                        task = ToDos.fromFileString(line);
-                        break;
-                    case 'D':
-                        task = Deadlines.fromFileString(line);
-                        break;
-                    case 'E':
-                        task = Events.fromFileString(line);
-                        break;
-                    default:
-                        continue;
+                case 'T':
+                    task = ToDos.fromFileString(line);
+                    break;
+                case 'D':
+                    task = Deadlines.fromFileString(line);
+                    break;
+                case 'E':
+                    task = Events.fromFileString(line);
+                    break;
+                default:
+                    continue;
                 }
                 if (task != null) {
                     tasks.add(task);
@@ -55,8 +69,11 @@ public class Storage {
         }
         return tasks;
     }
-
-    // Save tasks to file
+    /**
+     * Save tasks to file
+     * @param tasks
+     * @throws BobException
+     */
     public void saveTasks(ArrayList<Task> tasks) throws BobException {
         File file = new File(filePath);
         file.getParentFile().mkdirs();

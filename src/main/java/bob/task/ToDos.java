@@ -1,5 +1,4 @@
 package bob.task;
-import bob.task.Task;
 
 /**
  * Represents a To-Do task in the Bob chatbot.
@@ -8,7 +7,7 @@ import bob.task.Task;
 public class ToDos extends Task {
     public static final String TYPE = "T";
 
-    public ToDos(String description){
+    public ToDos(String description) {
         super(description);
     }
 
@@ -22,10 +21,17 @@ public class ToDos extends Task {
         return TYPE + " | " + super.toFileString();
     }
 
+    /**
+     * Creates an Events object from a line in the save file.
+     * @param line the line read from the save file
+     * @return a new Events object corresponding to the data in the line
+     */
     public static ToDos fromFileString(String line) {
         String[] parts = line.split(" \\| ", 3); // T | status | description
         ToDos t = new ToDos(parts[2]);
-        if (parts[1].equals("1")) t.markDone();
+        if (parts[1].equals("1")) {
+            t.markDone();
+        }
         return t;
     }
 }

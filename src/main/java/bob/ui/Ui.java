@@ -1,9 +1,9 @@
 package bob.ui;
 
-import bob.task.Task;
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import bob.task.Task;
 
 /**
  * Handles the interactions with user for the Bob chatbot.
@@ -17,6 +17,9 @@ public class Ui {
         sc = new Scanner(System.in);
     }
 
+    /**
+     * starts up the chatbot
+     */
     public void greet() {
         System.out.println("Hi! I'm Bob");
         System.out.println("What's on your agenda for today?");
@@ -31,10 +34,13 @@ public class Ui {
     }
 
     public String read() {
-        System.out.println("Enter a command:");
         return sc.nextLine();
     }
 
+    /**
+     * lists out all the task from find()
+     * @param tasks
+     */
     public void showFoundTasks(ArrayList<Task> tasks) {
         System.out.println("Matching tasks in your list:");
         for (Task t : tasks) {

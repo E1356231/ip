@@ -1,11 +1,10 @@
 package bob.command;
 
+import java.util.ArrayList;
+
 import bob.storage.Storage;
 import bob.task.Task;
 import bob.task.TaskList;
-import bob.ui.Ui;
-
-import java.util.ArrayList;
 /**
  * Finds tasks containing a given keyword.
  */
@@ -17,8 +16,16 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Storage storage) {
         ArrayList<Task> results = tasks.find(keyword);
-        ui.showFoundTasks(results);
+        if (results.isEmpty()) {
+            return "No matching tasks found";
+        }
+
+        StringBuilder sb = new StringBuilder("Here are the matching tasks:\n");
+        for (int i = 0; i < results.size(); i++) {
+            sb.append((i + 1) + ". " + results.get(i) + "\n");
+        }
+        return sb.toString();
     }
 }

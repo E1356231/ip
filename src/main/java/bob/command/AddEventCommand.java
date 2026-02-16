@@ -1,7 +1,6 @@
 package bob.command;
 import bob.exception.BobException;
 import bob.storage.Storage;
-import bob.ui.Ui;
 import bob.task.*;
 /**
  * Adds a Event task to in the chatbot.
@@ -13,11 +12,9 @@ public class AddEventCommand extends Command {
     private String endDate;
     private String endTime;
 
-    public AddEventCommand(String description) {
+    public AddEventCommand(String description, String startDate, String startTime,
+                           String endDate, String endTime) {
         this.description = description;
-    }
-
-    public void setDateTime(String startDate, String startTime, String endDate, String endTime) {
         this.startDate = startDate;
         this.startTime = startTime;
         this.endDate = endDate;
@@ -25,10 +22,10 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws BobException {
+    public String execute(TaskList tasks, Storage storage) throws BobException {
         Events event = new Events(description, startDate, startTime, endDate, endTime);
         tasks.add(event);
-        ui.showMessage("Event added: " + event);
-        storage.saveTasks(tasks.listTasks());
+        storage.saveTasks(tasks.getTasks());
+        return "Event added: " + event;
     }
 }
