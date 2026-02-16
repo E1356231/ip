@@ -7,6 +7,10 @@ public class Task {
     private String description;
     private boolean isDone;
 
+    /**
+     * Represents a task in the chatbot
+     * @param description
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
@@ -44,10 +48,13 @@ public class Task {
     public String toFileString() {
         return (isDone ? "1" : "0") + " | " + this.description;
     }
-
-    // Read task from file
+    /**
+     * Read task from file
+     * @param line
+     * @return
+     */
     public static Task fromFileString(String line) {
-        String[] parts = line.split(" \\| ",2);
+        String[] parts = line.split(" \\| ", 2);
         Task task = new Task(parts[1]);
         if (parts[0].equals("1")) {
             task.markDone();

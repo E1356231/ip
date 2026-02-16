@@ -1,0 +1,70 @@
+package bob;
+
+import bob.command.Command;
+import bob.exception.BobException;
+import bob.parser.Parser;
+import bob.storage.Storage;
+import bob.task.TaskList;
+/**
+ * The main class for Bob chatbot.
+ * Handles the initialization of the task list, user interface,
+ * and execution of commands.
+ */
+public class Bob {
+    private Storage storage;
+    private TaskList tasks;
+
+    public Bob() {
+        storage = new Storage("data/bob.txt");
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (BobException e) {
+            tasks = new TaskList();
+        }
+    }
+    public TaskList getTasks() {
+        return tasks;
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        try {
+            Command command = Parser.parse(input);
+            String response = command.execute(tasks, storage);
+
+            if (command.isExit()) {
+                return response + "EXIT_SIGNAL";
+            }
+            return response;
+        } catch (BobException e) {
+            return e.getMessage();
+        }
+    }
+}
+
+//    public void run() {
+//        ui.greet();
+//
+//        boolean isExit = false;
+//
+//        while (!isExit) {
+//            try {
+//                ui.showMessage("Enter a command: ");
+//                String fullCommand = ui.read();
+//                Command command = Parser.parse(fullCommand);
+//                command.execute(tasks, ui, storage);
+//                isExit = command.isExit();
+//            } catch (BobException e) {
+//                ui.showMessage(e.getMessage());
+//            }
+//        }
+//    }
+
+//    public static void main(String[] args) throws BobException {
+//
+//        new Bob().run();
+//    }
+
+

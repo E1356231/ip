@@ -8,12 +8,17 @@ import java.time.format.DateTimeFormatter;
  * Stores type, description, due date and time.
  */
 public class Deadlines extends Task {
+    private static final String TYPE = "D";
     private final String date;
     private final String time;
     private final LocalDate dateDue;
     private final LocalTime timeDue;
-    private static final String TYPE = "D";
 
+    /**
+     * @param description
+     * @param date
+     * @param time
+     */
     public Deadlines(String description, String date, String time) {
         super(description);
         this.date = date;
@@ -40,11 +45,17 @@ public class Deadlines extends Task {
         return TYPE + " | " + super.toFileString() + " | " + this.date + ", " + this.time;
     }
 
+    /**
+     * @param line
+     * @return
+     */
     public static Deadlines fromFileString(String line) {
         String[] parts = line.split(" \\| ", 4); // T | status | description | date and time
         String[] dateTime = parts[3].split(", ", 2);
         Deadlines d = new Deadlines(parts[2], dateTime[0], dateTime[1]);
-        if (parts[1].equals("1")) d.markDone();
+        if (parts[1].equals("1")) {
+            d.markDone();
+        }
         return d;
     }
 }

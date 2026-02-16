@@ -2,7 +2,6 @@ package bob.command;
 import bob.exception.BobException;
 import bob.storage.Storage;
 import bob.task.TaskList;
-import bob.ui.Ui;
 /**
  * Deletes a task from the chatbot.
  */
@@ -14,8 +13,9 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws BobException {
+    public String execute(TaskList tasks, Storage storage) throws BobException {
         tasks.delete(index);
         storage.saveTasks(tasks.listTasks());
+        return "Task Deleted";
     }
 }
