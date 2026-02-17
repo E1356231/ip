@@ -83,5 +83,15 @@ public class Events extends Task {
         }
         return e;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) {
+            return false;
+        }
+        Events other = (Events) obj;
+        boolean start = this.startDateTime.equals(other.startDateTime);
+        boolean end = this.endDateTime.equals(other.endDateTime);
+        return start && end;
+    }
 
 }
