@@ -1,11 +1,14 @@
 package bob.gui;
 
 import bob.Bob;
+
+import java.awt.*;
 import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,6 +27,11 @@ public class Main extends Application {
             stage.setMinHeight(220);
             stage.setMinWidth(417);
             fxmlLoader.<MainWindow>getController().setBob(bob);
+            stage.setTitle("ChatBot Bob");
+
+            Image image = new javafx.scene.image.Image("/images/bob.png");
+            stage.getIcons().add(image);
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,6 +1,7 @@
-T | 1 | read chapters 1-5
-T | 0 | write essay
-D | 0 | submit essay | 23/2/26, 2359
-E | 1 | project meeting | 22/2/26, 1300 | 22/2/26, 1400
-E | 0 | tutorial | 23/1/26, 0930 | 23/5/26, 1730
+D | 1 | submit essay | 23/2/26, 2359
 D | 1 | submit essay | 22/2/26, 2359
+T | 0 | finish ip
+D | 0 | ip | 20/2/26, 2359
+T | 0 | read book
+T | 0 | read Chapters 1 to 5
+E | 0 | Project | 1/3/26, 0900 | 3/3/26, 2359

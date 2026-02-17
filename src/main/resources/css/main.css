@@ -4,17 +4,26 @@
 }
 
 .text-field {
-    -fx-background-color: #d9ffe2;
-    -fx-font: 20px "Arial";
+    -fx-background-color: #ececec;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-padding: 8 15 8 15;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
 }
 
 .button {
-    -fx-background-color: mediumspringgreen;
+    -fx-background-color: #003e91;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
     -fx-font: italic bold 16px "Arial";
 }
 
 .button:hover {
-    -fx-background-color:cyan;
+    -fx-background-color:#5f799c;
     -fx-font-size: 18px;
 }
 
@@ -23,9 +32,25 @@
     -fx-font-size: 20px;
 }
 
+.top-bar {
+    -fx-background-color: #003e91;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 10 0 10;
+    -fx-border-width: 0;
+}
+
+.top-bar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
 .scroll-pane,
 .scroll-pane .viewport {
     -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
 }
 
 .scroll-bar {
@@ -34,7 +59,7 @@
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #ff9cb4;
+    -fx-background-color: #8b8b8b;
     -fx-background-radius: 1em;
 }
 
