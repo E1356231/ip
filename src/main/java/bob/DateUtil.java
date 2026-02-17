@@ -20,7 +20,7 @@ public class DateUtil {
         }
         LocalDate currDate = LocalDate.now();
         if (d.isBefore(currDate)) {
-            throw new BobException("INVALID: Date before today is not allowed.");
+            throw new BobException("date before today is not allowed.");
         }
     }
     public static void isValidEndDate(String startDate, String endDate) throws BobException {
@@ -33,7 +33,7 @@ public class DateUtil {
             throw new BobException(Errors.INVALID_DATE);
         }
         if (end.isBefore(start)) {
-            throw new BobException("INVALID: End date MUST BE AFTER start date.");
+            throw new BobException("end date MUST BE AFTER start date.");
         }
     }
     public static void isValidTime(String time) throws BobException {

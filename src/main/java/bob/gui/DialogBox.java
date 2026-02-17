@@ -30,8 +30,18 @@ public class DialogBox extends HBox {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        if (!isUser && s.startsWith("ERROR! - ")) {
+            dialog.setText(s);
+            dialog.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
+        } else {
+            dialog.setText(s);
+            if (isUser) {
+                dialog.getStyleClass().add("user-label");
+            } else {
+                dialog.getStyleClass().add("bot-label");
+            }
+        }
 
-        dialog.setText(s);
         displayPicture.setImage(i);
         if (isUser) {
             dialog.getStyleClass().add("user-label");
