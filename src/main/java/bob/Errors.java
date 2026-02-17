@@ -9,4 +9,5 @@ public class Errors {
     public static final String INVALID_DATE = "INVALID: Check that date format is d/M/yy";
     public static final String INVALID_TIME = "INVALID: Check that time format is HHmm";
     public static final String MISSING_KEYWORD = "Provide a keyword";
+    public static final String DUPLICATE = "Task already exists:\n";
 }

@@ -1,12 +1,13 @@
 package bob.task;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import bob.Errors;
+import bob.exception.BobException;
 
 /**
  * Represents a list of tasks in the Bob chatbot.
@@ -29,7 +30,12 @@ public class TaskList {
     /**
      * Add task to list
       */
-    public void add(Task t) {
+    public void add(Task t) throws BobException {
+        for (Task task : tasks) {
+            if (t.equals(task)) {
+                throw new BobException(Errors.DUPLICATE + (tasks.indexOf(task) + 1) + ". " + task);
+            }
+        }
         tasks.add(t);
         saveTasks();
     }

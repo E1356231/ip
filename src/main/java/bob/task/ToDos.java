@@ -34,4 +34,8 @@ public class ToDos extends Task {
         }
         return t;
     }
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

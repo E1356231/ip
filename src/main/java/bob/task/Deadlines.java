@@ -1,6 +1,7 @@
 package bob.task;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 /**
@@ -13,6 +14,7 @@ public class Deadlines extends Task {
     private final String time;
     private final LocalDate dateDue;
     private final LocalTime timeDue;
+    private final LocalDateTime deadline;
 
     /**
      * @param description
@@ -26,7 +28,9 @@ public class Deadlines extends Task {
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/M/yy");
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HHmm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yy HHmm");
 
+        this.deadline = LocalDateTime.parse(date + " " + time, formatter);
         this.dateDue = LocalDate.parse(date, dateFormat);
         this.timeDue = LocalTime.parse(time, timeFormat);
     }
@@ -57,5 +61,13 @@ public class Deadlines extends Task {
             d.markDone();
         }
         return d;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) {
+            return false;
+        }
+        Deadlines other = (Deadlines) obj;
+        return this.deadline.equals(other.deadline);
     }
 }
