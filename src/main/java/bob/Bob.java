@@ -5,6 +5,7 @@ import bob.exception.BobException;
 import bob.parser.Parser;
 import bob.storage.Storage;
 import bob.task.TaskList;
+
 /**
  * The main class for Bob chatbot.
  * Handles the initialization of the task list, user interface,
@@ -39,7 +40,7 @@ public class Bob {
             }
             return response;
         } catch (BobException e) {
-            return e.getMessage();
+            return "ERROR! - " + e.getMessage();
         }
     }
 }

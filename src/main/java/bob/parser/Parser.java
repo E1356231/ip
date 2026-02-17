@@ -36,7 +36,7 @@ public class Parser {
             //Assumption a todo task always has a description
             assert parts.length >= 2 : "To-Do task must have a description";
             if (parts.length < 2) {
-                throw new BobException("ERROR! Description Missing");
+                throw new BobException("missing description");
             }
             StringBuilder descriptionTodo = new StringBuilder();
             for (int i = 1; i < parts.length; i++) {
@@ -47,7 +47,7 @@ public class Parser {
         case "deadline":
             assert parts.length >= 4 : "Deadline task must have a description, due date and time";
             if (parts.length < 4) {
-                throw new BobException("ERROR! Description/Date/Time Missing");
+                throw new BobException("missing either description/date/time");
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 1; i < parts.length - 2; i++) {
@@ -64,7 +64,7 @@ public class Parser {
         case "event":
             assert parts.length >= 6 : "Event must have a description, start date and time, end date and time";
             if (parts.length < 6) {
-                throw new BobException("ERROR! Description/Start Date/Start Time/End Date/End Time Missing");
+                throw new BobException("missing either description/start datetime/end datetime");
             }
             StringBuilder stringbuilder = new StringBuilder();
             for (int i = 1; i < parts.length - 4; i++) {
@@ -84,17 +84,17 @@ public class Parser {
             return new AddEventCommand(event, startDate, startTime, endDate, endTime);
         case "mark":
             if (parts.length < 2) {
-                throw new BobException("You've not specified a task number");
+                throw new BobException(Errors.MISSING_NUMBER);
             }
             return new MarkCommand(Integer.parseInt(parts[1]));
         case "unmark":
             if (parts.length < 2) {
-                throw new BobException("Specify task number to unmark!");
+                throw new BobException(Errors.MISSING_NUMBER);
             }
             return new UnmarkCommand(Integer.parseInt(parts[1]));
         case "delete":
             if (parts.length < 2) {
-                throw new BobException("Specify task number to delete!");
+                throw new BobException(Errors.MISSING_NUMBER);
             }
             return new DeleteCommand(Integer.parseInt(parts[1]));
         case "find":
