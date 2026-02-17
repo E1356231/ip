@@ -22,6 +22,8 @@ public class Parser {
         case "list":
             return new ListCommand();
         case "todo":
+            //Assumption a todo task always has a description
+            assert parts.length >= 2 : "To-Do task must have a description";
             if (parts.length < 2) {
                 throw new BobException("ERROR! Description Missing");
             }
@@ -32,6 +34,7 @@ public class Parser {
             String todo = descriptionTodo.toString().trim();
             return new AddToDoCommand(todo);
         case "deadline":
+            assert parts.length >= 4 : "Deadline task must have a description, due date and time";
             if (parts.length < 4) {
                 throw new BobException("ERROR! Description/Date/Time Missing");
             }
@@ -44,6 +47,7 @@ public class Parser {
             String time = parts[parts.length - 1];
             return new AddDeadlineCommand(description, date, time);
         case "event":
+            assert parts.length >= 6 : "Event must have a description, start date and time, end date and time";
             if (parts.length < 6) {
                 throw new BobException("ERROR! Description/Start Date/Start Time/End Date/End Time Missing");
             }
