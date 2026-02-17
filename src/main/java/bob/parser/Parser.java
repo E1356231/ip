@@ -1,6 +1,17 @@
 package bob.parser;
 
-import bob.command.*;
+import bob.DateUtil;
+import bob.Errors;
+import bob.command.AddDeadlineCommand;
+import bob.command.AddEventCommand;
+import bob.command.AddToDoCommand;
+import bob.command.Command;
+import bob.command.DeleteCommand;
+import bob.command.ExitCommand;
+import bob.command.FindCommand;
+import bob.command.ListCommand;
+import bob.command.MarkCommand;
+import bob.command.UnmarkCommand;
 import bob.exception.BobException;
 /**
  * Parses user input for the chatbot.
@@ -9,7 +20,7 @@ import bob.exception.BobException;
 public class Parser {
     /**
      * @param fullCommand
-     * @return
+     * @return respective actions based on the user's inputs e.g. delete tasks, mark/unmark tasks, add tasks
      * @throws BobException
      */
     public static Command parse(String fullCommand) throws BobException {
@@ -42,6 +53,10 @@ public class Parser {
             String description = sb.toString().trim();
             String date = parts[parts.length - 2];
             String time = parts[parts.length - 1];
+
+            DateUtil.isValidDate(date);
+            DateUtil.isValidTime(time);
+
             return new AddDeadlineCommand(description, date, time);
         case "event":
             if (parts.length < 6) {
@@ -56,6 +71,12 @@ public class Parser {
             String startTime = parts[parts.length - 3];
             String endDate = parts[parts.length - 2];
             String endTime = parts[parts.length - 1];
+
+
+            DateUtil.isValidEndDate(startDate, endDate);
+            DateUtil.isValidTime(startTime);
+            DateUtil.isValidTime(endTime);
+
             return new AddEventCommand(event, startDate, startTime, endDate, endTime);
         case "mark":
             if (parts.length < 2) {
@@ -74,11 +95,11 @@ public class Parser {
             return new DeleteCommand(Integer.parseInt(parts[1]));
         case "find":
             if (parts.length < 2) {
-                throw new BobException("Please provide a keyword");
+                throw new BobException(Errors.MISSING_KEYWORD);
             }
             return new FindCommand(parts[1]);
         default:
-            throw new BobException("Unknown command: " + word);
+            throw new BobException(Errors.INVALID_COMMAND);
         }
     }
 }

@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bob.gui.MainWindow">
     <children>
-      <HBox fx:id="headerBar" prefHeight="60.0" styleClass="top-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="headerBar" prefHeight="49.0" prefWidth="400.0" styleClass="top-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <ImageView fx:id="headerImg" fitHeight="35" fitWidth="35" preserveRatio="true">
               <image>
                   <Image url="@/images/bob.png" />
@@ -28,11 +28,9 @@
       </TextField>
         <Button fx:id="sendButton" layoutX="346.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleUserInput" prefHeight="29.0" prefWidth="67.0" stylesheets="@../css/main.css" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0">
             <graphic>
-                <ImageView fitWidth="20"
-                           fitHeight="20"
-                           preserveRatio="true">
+                <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
                     <image>
-                        <Image url="@/images/send.png"/>
+                        <Image url="@/images/send.png" />
                     </image>
                 </ImageView>
             </graphic>

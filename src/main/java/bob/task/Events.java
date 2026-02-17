@@ -43,7 +43,6 @@ public class Events extends Task {
 
         this.startDateTime = LocalDateTime.of(dateStart, timeStart);
         this.endDateTime = LocalDateTime.of(dateEnd, timeEnd);
-
     }
 
     @Override
