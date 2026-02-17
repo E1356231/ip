@@ -26,7 +26,6 @@ public class TaskList {
         this.tasks = tasks;
     }
 
-
     /**
      * Add task to list
       */
@@ -88,45 +87,6 @@ public class TaskList {
     public void unmark(int idx) {
         tasks.get(idx - 1).unmark();
         saveTasks();
-    }
-
-    // Load tasks from file
-    private ArrayList<Task> loadTasks() {
-        ArrayList<Task> tasks = new ArrayList<>();
-        File file = new File(FILE_PATH);
-
-        if (!file.exists()) {
-            return tasks;
-        }
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.trim().isEmpty()) {
-                    continue;
-                }
-                Task task = null;
-                char type = line.charAt(0);
-
-                switch (type) {
-                case 'T':
-                    task = ToDos.fromFileString(line);
-                    break;
-                case 'D':
-                    task = Deadlines.fromFileString(line);
-                    break;
-                case 'E':
-                    task = Events.fromFileString(line);
-                    break;
-                default:
-                    continue;
-                }
-                tasks.add(task);
-            }
-        } catch (IOException e) {
-            System.out.println("Error loading tasks.");
-        }
-        return tasks;
     }
 
     // Save tasks to file

@@ -1,3 +1,5 @@
+package bob;
+
 import bob.exception.BobException;
 
 import java.time.LocalDate;
@@ -21,7 +23,20 @@ public class DateUtil {
             throw new BobException("INVALID: Date before today is not allowed.");
         }
     }
-    public static void isValidTime(String time) throws BobException{
+    public static void isValidEndDate(String startDate, String endDate) throws BobException {
+        LocalDate start;
+        LocalDate end;
+        try {
+            start = LocalDate.parse(startDate, DATE_FORMAT);
+            end = LocalDate.parse(endDate, DATE_FORMAT);
+        } catch (DateTimeParseException e) {
+            throw new BobException(Errors.INVALID_DATE);
+        }
+        if (end.isBefore(start)) {
+            throw new BobException("INVALID: End date MUST BE AFTER start date.");
+        }
+    }
+    public static void isValidTime(String time) throws BobException {
         try {
             LocalTime.parse(time, TIME_FORMAT);
         } catch (DateTimeParseException e) {

@@ -14,8 +14,9 @@ public class DeleteCommand extends Command {
 
     @Override
     public String execute(TaskList tasks, Storage storage) throws BobException {
+        String deletedTask = tasks.getTask(index).getDescription();
         tasks.delete(index);
         storage.saveTasks(tasks.listTasks());
-        return "Task Deleted";
+        return "Deleted: " + deletedTask;
     }
 }

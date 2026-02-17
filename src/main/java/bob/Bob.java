@@ -44,27 +44,3 @@ public class Bob {
     }
 }
 
-//    public void run() {
-//        ui.greet();
-//
-//        boolean isExit = false;
-//
-//        while (!isExit) {
-//            try {
-//                ui.showMessage("Enter a command: ");
-//                String fullCommand = ui.read();
-//                Command command = Parser.parse(fullCommand);
-//                command.execute(tasks, ui, storage);
-//                isExit = command.isExit();
-//            } catch (BobException e) {
-//                ui.showMessage(e.getMessage());
-//            }
-//        }
-//    }
-
-//    public static void main(String[] args) throws BobException {
-//
-//        new Bob().run();
-//    }
-
-

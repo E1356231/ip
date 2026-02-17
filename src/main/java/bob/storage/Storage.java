@@ -24,7 +24,17 @@ public class Storage {
     public Storage(String filePath) {
         this.filePath = filePath;
     }
-
+    private Task parseTask(String line) {
+        if (line.isBlank()) {
+            return null;
+        }
+        return switch (line.charAt(0)) {
+        case 'T' -> ToDos.fromFileString(line);
+        case 'D' -> Deadlines.fromFileString(line);
+        case 'E' -> Events.fromFileString(line);
+        default -> null;
+        };
+    }
     /**
      * Load tasks from file
      * @return
@@ -33,7 +43,6 @@ public class Storage {
     public ArrayList<Task> load() throws BobException {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(filePath);
-
         if (!file.exists()) {
             return tasks;
         }
@@ -41,25 +50,7 @@ public class Storage {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.trim().isEmpty()) {
-                    continue;
-                }
-                Task task = null;
-                char type = line.charAt(0);
-
-                switch (type) {
-                case 'T':
-                    task = ToDos.fromFileString(line);
-                    break;
-                case 'D':
-                    task = Deadlines.fromFileString(line);
-                    break;
-                case 'E':
-                    task = Events.fromFileString(line);
-                    break;
-                default:
-                    continue;
-                }
+                Task task = parseTask(line);
                 if (task != null) {
                     tasks.add(task);
                 }
