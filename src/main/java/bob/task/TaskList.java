@@ -41,13 +41,11 @@ public class TaskList {
     }
     /**
      * Remove task from list
-     * @param idx
-     * @return
+     * @param idx index of task in the list
      */
-    public Task delete(int idx) {
-        Task removed = tasks.remove(idx - 1);
+    public void delete(int idx) {
+        tasks.remove(idx - 1);
         saveTasks();
-        return removed;
     }
     public void deleteAll() {
         tasks.clear();
@@ -91,7 +89,7 @@ public class TaskList {
     }
     /**
      * unmark task
-     * @param idx
+     * @param idx index in the tasklist to unmark
      */
     public void unmark(int idx) {
         tasks.get(idx - 1).unmark();

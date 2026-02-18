@@ -22,8 +22,15 @@ public class Parser {
     /**
      * @param fullCommand command given by user
      * @return respective actions based on the user's inputs e.g. delete tasks, mark/unmark tasks, add tasks
-     * @throws BobException
+     * @throws BobException if:
+     *      <ul>
+     *          <li>The command keyword is not recognized</li>
+     *          <li>A required description, date, or time is missing</li>
+     *          <li>A task number or keyword is missing for commands like mark, unmark, delete, or find</li>
+     *      </ul>
      */
+
+
     public static Command parse(String fullCommand) throws BobException {
         String[] parts = fullCommand.trim().split("\\s+"); // split by space
         String word = parts[0].toLowerCase();
@@ -36,7 +43,6 @@ public class Parser {
         case "reset":
             return new ClearAllCommand();
         case "todo":
-            //Assumption a todo task always has a description
             assert parts.length >= 2 : "To-Do task must have a description";
             if (parts.length < 2) {
                 throw new BobException("missing description");

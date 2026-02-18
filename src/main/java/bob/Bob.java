@@ -12,9 +12,12 @@ import bob.task.TaskList;
  * and execution of commands.
  */
 public class Bob {
-    private Storage storage;
+    private final Storage storage;
     private TaskList tasks;
 
+    /**
+     * Main chatbot class that coordinates user interaction
+     */
     public Bob() {
         storage = new Storage("data/bob.txt");
         try {

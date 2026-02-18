@@ -10,10 +10,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-
+/**
+ * Main GUI class for the chatbot application
+ */
 public class Main extends Application {
 
-    private Bob bob = new Bob();
+    private final Bob bob = new Bob();
 
     @Override
     public void start(Stage stage) {

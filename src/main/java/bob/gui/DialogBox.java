@@ -14,6 +14,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 
+
+/**
+ * Represents a dialog box used in the chatbot UI.
+ * A DialogBox typically contains a message and an avatar image,
+ * and can be styled differently depending on whether it is from the user or the bot.
+ */
 public class DialogBox extends HBox {
 
     @FXML
@@ -21,6 +27,11 @@ public class DialogBox extends HBox {
     @FXML
     private ImageView displayPicture;
 
+    /**
+     * @param s string, bot's response, user's input
+     * @param i image of user/bot
+     * @param isUser checks if it's user or chatbot
+     */
     public DialogBox(String s, Image i, boolean isUser) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("/view/DialogBox.fxml"));

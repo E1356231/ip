@@ -7,10 +7,22 @@ import java.time.format.DateTimeParseException;
 
 import bob.exception.BobException;
 
+/**
+ * Formats datetime and checks the validity of date and time formats
+ */
 public class DateUtil {
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/M/yy");
     private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HHmm");
 
+    /**
+     * Checks if dates given by the user are the right format
+     * @param date date given by the user
+     * @throws BobException if:
+     *      <ul>
+     *          <li>date not in the format, d/M/yy</li>
+     *          <li>date before today is entered for deadline tasks</li>
+     *      </ul>
+     */
     public static void isValidDate(String date) throws BobException {
         LocalDate d;
         try {
@@ -23,6 +35,12 @@ public class DateUtil {
             throw new BobException("date before today is not allowed.");
         }
     }
+    /**
+     * Checks if dates given by the user are the right format
+     * @param startDate start date of event given by the user
+     * @param endDate end date if event given by the user
+     * @throws BobException if end dates are after start dates
+     */
     public static void isValidEndDate(String startDate, String endDate) throws BobException {
         LocalDate start;
         LocalDate end;
@@ -36,6 +54,12 @@ public class DateUtil {
             throw new BobException("end date MUST BE AFTER start date.");
         }
     }
+
+    /**
+     * Checks time entered by user is in valid format
+     * @param time time of task (deadline/event)
+     * @throws BobException if time given by user is not in the format, HHmm
+     */
     public static void isValidTime(String time) throws BobException {
         try {
             LocalTime.parse(time, TIME_FORMAT);
