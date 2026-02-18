@@ -34,6 +34,12 @@ public class Deadlines extends Task {
         this.dateDue = LocalDate.parse(date, dateFormat);
         this.timeDue = LocalTime.parse(time, timeFormat);
     }
+    public String getDate() {
+        return this.date;
+    }
+    public String getTime() {
+        return this.time;
+    }
 
     @Override
     public String toString() {
