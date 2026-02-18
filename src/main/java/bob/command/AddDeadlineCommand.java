@@ -9,13 +9,13 @@ import bob.task.TaskList;
  */
 public class AddDeadlineCommand extends Command {
     private final String description;
-    private String date;
-    private String time;
+    private final String date;
+    private final String time;
 
     /**
-     * @param description
-     * @param date
-     * @param time
+     * @param description title of deadline task
+     * @param date due date of deadline task
+     * @param time time due of deadline task
      */
     public AddDeadlineCommand(String description, String date, String time) {
         this.description = description;

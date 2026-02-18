@@ -6,10 +6,10 @@ import bob.task.TaskList;
  */
 public class ListCommand extends Command {
     @Override
-    public String execute(TaskList tasks, Storage storage) {
+        public String execute(TaskList tasks, Storage storage) {
         if (tasks.getSize() > 0) {
             return ("Task(s) in your list:\n" + tasks.getTaskList());
         }
-        return ("No tasks added yet.");
+        return ("You have no tasks.");
     }
 }

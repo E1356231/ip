@@ -25,7 +25,7 @@ public class Main extends Application {
             stage.setMinHeight(220);
             stage.setMinWidth(417);
             fxmlLoader.<MainWindow>getController().setBob(bob);
-            stage.setTitle("ChatBot Bob");
+            stage.setTitle("Bob");
 
             Image image = new javafx.scene.image.Image("/images/bob.png");
             stage.getIcons().add(image);

@@ -49,6 +49,9 @@ public class TaskList {
         saveTasks();
         return removed;
     }
+    public void deleteAll() {
+        tasks.clear();
+    }
     public Task getTask(int idx) {
         return tasks.get(idx - 1);
     }

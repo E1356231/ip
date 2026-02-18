@@ -5,6 +5,7 @@ import bob.Errors;
 import bob.command.AddDeadlineCommand;
 import bob.command.AddEventCommand;
 import bob.command.AddToDoCommand;
+import bob.command.ClearAllCommand;
 import bob.command.Command;
 import bob.command.DeleteCommand;
 import bob.command.ExitCommand;
@@ -19,7 +20,7 @@ import bob.exception.BobException;
  */
 public class Parser {
     /**
-     * @param fullCommand
+     * @param fullCommand command given by user
      * @return respective actions based on the user's inputs e.g. delete tasks, mark/unmark tasks, add tasks
      * @throws BobException
      */
@@ -32,6 +33,8 @@ public class Parser {
             return new ExitCommand();
         case "list":
             return new ListCommand();
+        case "reset":
+            return new ClearAllCommand();
         case "todo":
             //Assumption a todo task always has a description
             assert parts.length >= 2 : "To-Do task must have a description";

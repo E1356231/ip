@@ -1,11 +1,11 @@
 package bob;
 
-import bob.exception.BobException;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+
+import bob.exception.BobException;
 
 public class DateUtil {
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/M/yy");
