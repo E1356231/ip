@@ -1,7 +1,7 @@
 # Bob User Guide
 
 <a name="tasklist-anchor-point"></a>
-![UI Screenshot](docs/Ui.png)
+![UI Screenshot](Ui.png)
 
 Bob (Task Management Chatbot) is a **desktop task management application with a graphical user interface (GUI)** 
 that allows users to manage tasks efficiently using typed commands. 
