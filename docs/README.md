@@ -1,7 +1,6 @@
 # Bob User Guide
-<a name="image-anchor-point"></a>
 
-![UI Screenshot](Ui.png)
+<a name="image-anchor-point">![UI Screenshot](Ui.png)</a>
 
 Bob (Task Management Chatbot) is a **desktop task management application with a graphical user interface (GUI)** 
 that allows users to manage tasks efficiently using typed commands. 
@@ -9,6 +8,13 @@ Tasks are automatically saved, ensuring your progress is preserved across sessio
 
 ## Features
 
+> [!NOTE]
+> - Words in `UPPER_CASE` are the parameters to be supplied by the user.
+    >
+    >   e.g. in `todo DESCRIPTION`, `DESCRIPTION` is a parameter which can be used as `todo Read book`.
+> - Extraneous parameters for commands that do not take in parameters (such as `list`, `bye` and `clear`) will be ignored.
+    >
+    >   e.g. if the command specifies `bye 123`, it will be interpreted as `bye.
 
 ## Listing all tasks: `list`
 
