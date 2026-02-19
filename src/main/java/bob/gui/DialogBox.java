@@ -12,7 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 
 /**
@@ -41,9 +46,17 @@ public class DialogBox extends HBox {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (!isUser && s.startsWith("ERROR! - ")) {
-            dialog.setText(s);
-            dialog.setStyle("-fx-font-weight: bold; -fx-text-fill: red;");
+        if (!isUser && s.startsWith("ERROR! ")) {
+            Text errorText = new Text(s.substring(0, 6));
+            errorText.setFont(Font.font("System", FontWeight.BOLD, 12));
+            errorText.setFill(Color.RED);
+            Text remainingText = new Text(s.substring(6));
+            remainingText.setFont(Font.font("System", FontWeight.NORMAL, 12));
+            remainingText.setFill(Color.BLACK);
+
+            TextFlow text = new TextFlow(errorText, remainingText);
+            dialog.setText("");
+            dialog.setGraphic(text);
         } else {
             dialog.setText(s);
             if (isUser) {

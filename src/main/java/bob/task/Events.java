@@ -55,11 +55,11 @@ public class Events extends Task {
             LocalDate date = startDateTime.toLocalDate();
             LocalTime startTime = startDateTime.toLocalTime();
             LocalTime endTime = endDateTime.toLocalTime();
-            return "[E]" + super.toString() + ", " + date.format(dateFormatter) + ": "
+            return "[E]" + super.toString() + " on " + date.format(dateFormatter) + ", "
                     + startTime.format(timeFormatter) + " - "
                     + endTime.format(timeFormatter);
         }
-        return "[E]" + super.toString() + ": " + this.startDateTime.format(formatter)
+        return "[E]" + super.toString() + " on " + this.startDateTime.format(formatter)
                 + " to " + this.endDateTime.format(formatter);
     }
 

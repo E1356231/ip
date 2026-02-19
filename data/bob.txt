@@ -1,1 +1,5 @@
-T | 0 | Finish Homework
+T | 0 | Read book
+T | 0 | Read textbook
+D | 0 | Submit Homework | 1/3/26, 2359
+E | 0 | Project Meeting | 1/3/26, 2000 | 1/3/26, 2100
+E | 0 | Conference | 1/3/26, 0900 | 2/3/26, 1330

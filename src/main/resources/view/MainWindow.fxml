@@ -35,7 +35,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutY="49.333333333333336" prefHeight="501.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
             <content>
                 <VBox fx:id="dialogContainer" prefWidth="397.0" spacing="10" style="-fx-padding: 10 0 0 0;" />
             </content>

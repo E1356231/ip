@@ -40,7 +40,7 @@ public class Parser {
             return new ExitCommand();
         case "list":
             return new ListCommand();
-        case "reset":
+        case "clear":
             return new ClearAllCommand();
         case "todo":
             assert parts.length >= 2 : "To-Do task must have a description";
