@@ -33,7 +33,7 @@ public class TaskList {
     public void add(Task t) throws BobException {
         for (Task task : tasks) {
             if (t.equals(task)) {
-                throw new BobException(Errors.DUPLICATE + (tasks.indexOf(task) + 1) + ". " + task);
+                throw new BobException(Errors.DUPLICATE + "\u00BB " + task);
             }
         }
         tasks.add(t);

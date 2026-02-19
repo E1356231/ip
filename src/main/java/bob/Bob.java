@@ -43,7 +43,7 @@ public class Bob {
             }
             return response;
         } catch (BobException e) {
-            return "ERROR! - " + e.getMessage();
+            return "ERROR! " + e.getMessage();
         }
     }
 }

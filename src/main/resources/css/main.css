@@ -35,8 +35,9 @@
 .top-bar {
     -fx-background-color: #003e91;
     -fx-alignment: CENTER_LEFT;
-    -fx-padding: 0 10 0 10;
+    -fx-padding: 0;
     -fx-border-width: 0;
+    -fx-background-insets: 0;
 }
 
 .top-bar-title {
