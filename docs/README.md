@@ -1,11 +1,14 @@
 # Bob User Guide
+<a name="image-anchor-point"></a>
 
-<a name="tasklist-anchor-point"></a>
 ![UI Screenshot](Ui.png)
 
 Bob (Task Management Chatbot) is a **desktop task management application with a graphical user interface (GUI)** 
 that allows users to manage tasks efficiently using typed commands. 
 Tasks are automatically saved, ensuring your progress is preserved across sessions.
+
+## Features
+
 
 ## Listing all tasks: `list`
 
@@ -73,7 +76,7 @@ Deletes specified task in Bob's task list.
 Format: `delete INDEX`
 
 - Deletes the task at specified `INDEX`.
-- Index refers to the index number displayed in Bob's [task list](#tasklist-anchor-point).
+- Index refers to the index number displayed in Bob's [task list](#image-anchor-point).
 - Index **must be a positive integer** from '1' onwards.
 
 Example: `delete 1`
@@ -103,7 +106,7 @@ Marks specified task in Bob's task list.
 Format: `mark INDEX`
 
 - Marks the task at specified `INDEX`.
-- Index refers to the index number displayed in Bob's [task list](#tasklist-anchor-point).
+- Index refers to the index number displayed in Bob's [task list](#image-anchor-point).
 - Index **must be a positive integer** from '1' onwards.
 
 Example: `mark 1`
@@ -121,7 +124,7 @@ Unmark specified task in Bob's task list.
 Format: `unmark INDEX`
 
 - Unmark the task at specified `INDEX`.
-- Index refers to the index number displayed in Bob's [task list](#tasklist-anchor-point).
+- Index refers to the index number displayed in Bob's [task list](#image-anchor-point).
 - Index **must be a positive integer** from '1' onwards.
 
 Example: `unmark 1`
